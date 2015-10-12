@@ -13,6 +13,7 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'faker'
 # Use Bootstrap
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
