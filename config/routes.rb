@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
-  get 'about' => 'welcome#about' 
+  get 'about' => 'welcome#about'
   root to: 'welcome#index'
 
   # Implied hash syntax:
