@@ -12,7 +12,9 @@ end
 group :development do
   gem 'sqlite3'
 end
-
+# for user authentication
+gem 'devise'
+# for seeding database with dummy data 
 gem 'faker'
 # Use Bootstrap
 gem 'bootstrap-sass'
