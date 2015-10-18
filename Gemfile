@@ -12,6 +12,8 @@ end
 group :development do
   gem 'sqlite3'
 end
+# for authorizing different user classes with different roles
+gem 'pundit'
 # for handling sensitive data with environment variables
 gem 'figaro', '1.0'
 # for user authentication

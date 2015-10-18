@@ -1,9 +1,13 @@
 <div class="col-md-8">
   <div class="pretty">
     <h1><%= @post.title %></h1>
+    </div>
+  <div class="lower-elements">
+    <div class="cool">
+      <p><%= @post.body %></p>
+    </div>
+    <% if policy(@post).edit? %>
+    <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+    <% end %>
   </div>
-  <div class="cool">
-    <p><%= @post.body %></p>
-  </div>
-  <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
 </div>
