@@ -12,9 +12,11 @@ end
 group :development do
   gem 'sqlite3'
 end
+# for handling sensitive data with environment variables
+gem 'figaro', '1.0'
 # for user authentication
 gem 'devise'
-# for seeding database with dummy data 
+# for seeding database with dummy data
 gem 'faker'
 # Use Bootstrap
 gem 'bootstrap-sass'
