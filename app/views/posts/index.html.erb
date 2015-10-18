@@ -10,6 +10,10 @@
       <p><%= link_to post.title, post %></p>
       <!-- <p><%= link_to post.title, post_path(post) %></p> -->
       <!-- <p><%= link_to post.title, post_path(post.id) %></p> -->
+      <small>
+        submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br>
+        <%= post.comments.count %> Comments
+      </small>
     </h4>
   </div>
 </div>
