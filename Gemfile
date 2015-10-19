@@ -12,6 +12,8 @@ end
 group :development do
   gem 'sqlite3'
 end
+# for allowing posts and topics to be written in markdown
+gem 'redcarpet'
 # for authorizing different user classes with different roles
 gem 'pundit'
 # for handling sensitive data with environment variables
