@@ -12,6 +12,12 @@ end
 group :development do
   gem 'sqlite3'
 end
+
+# for storing our images in Amazon cloud
+gem 'fog'
+# for uploading pictures onto Bloccit
+gem 'mini_magick'
+gem 'carrierwave'
 # for allowing posts and topics to be written in markdown
 gem 'redcarpet'
 # for authorizing different user classes with different roles
