@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.paginate(page: params[:page])
     authorize @topics
   end
 
@@ -11,7 +11,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts
+    @posts = @topic.posts.paginate(page: params[:page])
     authorize @topic
   end
 
@@ -27,7 +27,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "Success!"
       redirect_to @topic
     else
-      flash[:error] = "There was an error saving the topic.  Please try again!"
+      flash[:error] = "There was an error saving the topic. Please try again!"
       render :new
     end
   end

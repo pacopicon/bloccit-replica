@@ -1,0 +1,20 @@
+<p>
+  <%= comment.body %>
+  <% if comment.user %>
+    <comment>
+      submitted <%= time_ago_in_words(comment.created_at) %> ago by
+      <em>by <%= comment.user.name || comment.user.email %></em>
+      <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
+    </comment>
+  <% end %>
+</p>
+
+
+<!-- <p> -->
+  <!-- <%= comment.body %> -->
+  <!-- <% if comment.user %> -->
+    <!-- <small> -->
+      <!-- <em>by <%= comment.user.name || comment.user.email %></em> -->
+    <!-- </small> -->
+  <!-- <% end %> -->
+<!-- </p> -->

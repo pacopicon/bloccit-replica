@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  self.per_page = 100
   has_many :comments
   belongs_to :user
   belongs_to :topic
