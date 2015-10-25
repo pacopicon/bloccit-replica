@@ -12,7 +12,8 @@ end
 group :development do
   gem 'sqlite3'
 end
-
+# for organizing content in pages
+gem 'will_paginate', '~> 3.0.5'
 # for storing our images in Amazon cloud
 gem 'fog'
 # for uploading pictures onto Bloccit

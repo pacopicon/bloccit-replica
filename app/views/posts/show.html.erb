@@ -11,6 +11,7 @@
             <%= @post.user.name %>
           </small>
           <p><%= markdown_to_html @post.body %></p>
+          <%= image_tag(@post.image.normal.url) if @post.image? %>
         </div>
       </div>
     </div>

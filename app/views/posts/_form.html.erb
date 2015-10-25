@@ -20,4 +20,18 @@
  <div class="form-group">
    <%= f.submit "Save", class: 'btn btn-success' %>
  </div>
+ <% if post.image? %>
+   <div class="image-group">
+     <p>Current image</p>
+     <%= image_tag(post.image.normal.url) %>
+   </div>
+ <% end %>
+ <div class="image-group">
+   <%= f.label :image %>
+   <%= f.file_field :image %>
+   <%= f.hidden_field :image_cache %>
+ </div>
+ <!-- <div class="image-group"> -->
+   <!-- <%= f.submit "Upload", class: 'btn btn-success' %> -->
+ <!-- </div> -->
 <% end %>
