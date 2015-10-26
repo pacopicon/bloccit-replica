@@ -1,20 +1,25 @@
-<p>
+<!-- <p>
   <%= comment.body %>
   <% if comment.user %>
-    <comment>
+    <div class="comment">
       submitted <%= time_ago_in_words(comment.created_at) %> ago by
       <em>by <%= comment.user.name || comment.user.email %></em>
       <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
     </comment>
   <% end %>
-</p>
+</p> -->
 
+<div class="media">
+  <div class="media-left">
 
-<!-- <p> -->
-  <!-- <%= comment.body %> -->
-  <!-- <% if comment.user %> -->
-    <!-- <small> -->
-      <!-- <em>by <%= comment.user.name || comment.user.email %></em> -->
-    <!-- </small> -->
-  <!-- <% end %> -->
-<!-- </p> -->
+  </div>
+  <div class="media-body">
+    <small>
+      <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %><%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+      <% if policy(comment).destroy? %>
+        | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+      <% end %>
+    </small>
+    <p><%= comment.body %></p>
+  </div>
+</div>
