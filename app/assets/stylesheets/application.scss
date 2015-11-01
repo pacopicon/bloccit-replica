@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ // "bootstra-sprockets" must be imported before "bootstrap" and "boostrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -24,4 +25,9 @@
 .nav {
   color: #a7b39b;
   margin-top: 5px;
+}
+
+.vote-arrows{
+  width: 40px;
+  text-align: center;
 }
