@@ -2,36 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  background-color: #FFCC00;
-}
 
 .post{
   color: #99CC99;
+  width: auto;
+}
+
+.post-elements{
   margin: 10px 50px 10px 50px;
 }
 
-.pretty{
+.title{
   background-color: #c7a379;
   font-size: 30 px;
-  height: 200 px;
-  margin: 10px 50px 10px 50px;
+  height: 57px;
 }
 
-.lower-elements{
-  margin: 10px 50px 10px 50px;
-}
-
-.cool {
+.body{
   background-color: #a7b39b;
   font-size: 30 px;
-  height: 200 px;
-
 }
 
 h1 {
   color: #644d3c;
-  text-align: center;
 }
 
 p {

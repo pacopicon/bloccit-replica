@@ -1,32 +1,40 @@
-  <div class="pretty">
-    <h1><%= markdown_to_html @post.title %></h1>
-    </div>
-  <div class="lower-elements">
-    <div class="cool">
-      <div class="row">
-        <div class="col-md-8">
-          <small>
-            submitted <%= time_ago_in_words(@post.created_at) %> ago by
-            <%= @post.user.name %>
-            <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
-          </small>
+<div class="post-elements">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="title">
+        <%= render partial: 'votes/voter', locals: {post: @post} %>
+        <h1><%= markdown_to_html @post.title %></h1>
+        </div>
+        <small>
+          submitted <%= time_ago_in_words(@post.created_at) %> ago by
+          <%= @post.user.name %>
+          <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
+        </small>
+        <div class="body">
           <p><%= markdown_to_html @post.body %></p>
           <%= image_tag(@post.image.normal.url) if @post.image? %>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <% if policy(@post).edit? %>
-        <%= link_to "Edit Post", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
-      <% end %>
-      <% if policy(@post).destroy? %>
-        <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-danger', data: {confirm: "Are you sure you want to delete this post?"} %>
-      <% end %>
-    </div>
-    <div class="comment">
-      <%= render @comments %>
-      <% if policy(Comment).new? %>
-      <%= render partial: 'comments/form', locals: {post: @post, comment: Comment.new} %>
-      <% end %>
     </div>
   </div>
+  <div class="col-md-4">
+    <% if policy(@post).edit? %>
+      <%= link_to "Edit Post", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+    <% end %>
+    <% if policy(@post).destroy? %>
+      <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-danger', data: {confirm: "Are you sure you want to delete this post?"} %>
+    <% end %>
+  </div>
+  <div class="comment">
+    <%= render @comments %>
+    <% if policy(Comment).new? %>
+    <%= render partial: 'comments/form', locals: {post: @post, comment: Comment.new} %>
+    <% end %>
+  </div>
+  <div>
+    <h3><%= pluralize(@post.points, 'point') %></h3>
+    <small>
+      <%= pluralize(@post.up_votes, 'up vote') %>,
+      <%= pluralize(@post.down_votes, 'down vote') %>
+    </small>
+  </div>
+</div>
