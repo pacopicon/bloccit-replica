@@ -26,9 +26,8 @@ class CommentsController < ApplicationController
       redirect_to [@post.topic, @post], notice: "Success!"
     else
       redirect_to [@post.topic, @post], notice: "There was an error saving the comment. Please try again!"
+    end
   end
-
-end
 
   def comment_params
     params.require(:comment).permit(:body)
