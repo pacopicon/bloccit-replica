@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  self.per_page = 100
+  self.per_page = 10
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :favorites, dependent: :destroy

@@ -1,7 +1,7 @@
 <% if policy(Favorite.new).create? %>
   <div class="favorite">
     <% if favorite = current_user.favorited(post) %>
-      <!-- Favorited -->
+      Favorited
       <% random = Random.new %>
       <% pic_num = random.rand(1..10) %>
       <% if pic_num == 1 %>

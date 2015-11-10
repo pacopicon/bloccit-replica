@@ -1,4 +1,4 @@
 class Topic < ActiveRecord::Base
   has_many :posts, dependent: :destroy
-  self.per_page = 50
+  self.per_page = 2
 end

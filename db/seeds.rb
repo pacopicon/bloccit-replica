@@ -12,7 +12,7 @@ require 'faker'
 end
 users = User.all
 
-10.times do
+6.times do
   Topic.create!(
   name:         Faker::Lorem.sentence,
   description:  Faker::Lorem.paragraph
@@ -20,7 +20,7 @@ users = User.all
 end
 topics = Topic.all
  # Create Posts
- 100.times do
+ 60.times do
    post = Post.create!(
     user:   users.sample,
     topic:  topics.sample,
@@ -36,23 +36,13 @@ topics = Topic.all
  posts = Post.all
 
  # Create Comments
- 1000.times do
+ 300.times do
    Comment.create!(
     user: users.sample,
     post: posts.sample,
     body: Faker::Lorem.paragraph
    )
  end
-
-# Create an admin user
- admin = User.new(
-  name:     'Admin User',
-  email:    'admin@example.com',
-  password: 'helloworld',
-  role:     'admin'
- )
- admin.skip_confirmation!
- admin.save!
 
  # Create a moderator
 moderator = User.new(
@@ -73,6 +63,16 @@ role:     'member'
 )
 member.skip_confirmation!
 member.save!
+
+# Create an admin user
+ paco = User.new(
+  name:     'paco',
+  email:    'fjp2106@columbia.edu',
+  password: 'helloworld',
+  role:     'admin'
+ )
+ paco.skip_confirmation!
+ paco.save!
 
  puts "Seed finished"
  puts "#{User.count} users created"
