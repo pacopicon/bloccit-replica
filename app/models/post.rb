@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  self.per_page = 10
+  self.per_page = 5
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
   validates :user, presence: true
 
   default_scope {order ('rank DESC')}
+    scope :visible_to, -> (user) {user ? all : joins(:topic).where('topics.public' => true)}
 
   mount_uploader :image, ImageUploader
 
