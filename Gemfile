@@ -16,6 +16,8 @@ group :development do
   gem 'binding_of_caller'
 end
 
+# for monitoring Bloccit's performance
+gem 'newrelic_rpm'
 # for organizing content in pages
 gem 'will_paginate', '~> 3.0.5'
 # for storing our images in Amazon cloud
