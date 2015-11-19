@@ -16,6 +16,8 @@ group :development do
   gem 'binding_of_caller'
 end
 
+# for object creation in tests
+gem 'factory_girl_rails', '~> 4.0'
 # for organizing content in pages
 gem 'will_paginate', '~> 3.0.5'
 # for storing our images in Amazon cloud
