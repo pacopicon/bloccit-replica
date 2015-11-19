@@ -16,6 +16,9 @@ group :development do
   gem 'binding_of_caller'
 end
 
+# other development and production servers:
+gem 'puma', group: :production
+gem 'thin', group: :development 
 # for monitoring Bloccit's performance
 gem 'newrelic_rpm'
 # for organizing content in pages
