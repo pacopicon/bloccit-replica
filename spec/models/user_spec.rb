@@ -8,7 +8,8 @@ describe User do
 
     before do
       @post = associated_post
-      @user = authenticated_user
+      # @user = authenticated_user
+      @user = FactoryGirl.create(:user_with_post_and_comment)
 
     end
 
@@ -26,13 +27,15 @@ describe User do
   describe ".top_rated" do
 
     before do
-      @user1 = create(:user)
-      post = create(:post, user: @user1)
-      create(:comment, user: @user1, post: post)
+      # @user1 = create(:user)
+      @user1 = FactoryGirl.create(:user_with_post_and_comment, posts_count: 1, comments_count: 1)
+      # post = create(:post, user: @user1)
+      # create(:comment, user: @user1, post: post)
 
-      @user2 = create(:user)
-      post = create(:post, user: @user2)
-      2.times {create(:comment, user: @user2, post: post)}
+      # @user2 = create(:user)
+      @user2 = FactoryGirl.create(:user_with_post_and_comment, posts_count: 1, comments_count: 2)
+      # post = create(:post, user: @user2)
+      # 2.times {create(:comment, user: @user2, post: post)}
     end
 
     it "returns users ordered by comments + posts" do
@@ -41,7 +44,7 @@ describe User do
 
     it "stores a 'posts_count' on user" do
       users = User.top_rated
-      expect(users.first.post_count).to eq(1)
+      expect(users.first.posts_count).to eq(1)
     end
 
     it "stores a 'comments_count' on user" do
