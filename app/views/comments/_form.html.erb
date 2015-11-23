@@ -1,8 +1,10 @@
+<div class="js-comments">
 <% if current_user %>
   <h4>Add a comment:</h4>
-  <%= form_for [post, comment] do |f| %>
+  <%= form_for [@post, Comment.new], remote: true do |f| %>
     <%= f.label :body %>
     <%= f.text_field :body, placeholder: "Enter comment here" %>
     <%= f. submit %>
   <% end %>
 <% end %>
+</div>

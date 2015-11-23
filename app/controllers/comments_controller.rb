@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     authorize @comment
-    
+
     if @comment.destroy
       flash[:notice] = "Comment was removed."
     else
@@ -19,19 +19,24 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # @topic = Topic.find(params[:topic_id])
-
-    # @comment.post
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
+    @comments = @post.comments
+
+    @comment = Comment.new(comment_params)
     @comment.user = current_user
+    @comment.post = @post
+    @new_comment = Comment.new
+
     authorize @comment
+
     if @comment.save
-      redirect_to [@post.topic, @post], notice: "Success!"
+      flash[:notice] = "Success!"
     else
-      redirect_to [@post.topic, @post], notice: "There was an error saving the comment. Please try again!"
+      flash[:notice] = "There was an error saving the comment. Please try again!"
     end
   end
+
+  private
 
   def comment_params
     params.require(:comment).permit(:body)
