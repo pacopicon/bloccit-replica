@@ -7,6 +7,8 @@ gem 'rails', '4.2.4'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  # for enabling newrelic web analytics
+  gem 'newrelic_rpm'
 end
 
 group :development do
